@@ -6,16 +6,79 @@ import Hero from "@components/hero.astro";
 import Logos from "@components/logos.astro";
 import Layout from "@layouts/Layout.astro";
 import { Code } from "astro:components";
+import { Fragment } from "astro/components";
 ---
 
-<Layout title="">
+<Layout title="BrickMove Pro - Professional Brick Moving Services">
   <Container>
-    <Hero />
-    <Features />
-    <Logos />
-    <Cta />
+    <Hero>
+      <Fragment slot="title">
+        Professional Brick Moving Services <span class="text-accent">Made Simple</span>
+      </Fragment>
+      <Fragment slot="subtitle">
+        Your trusted partner in efficient brick transportation. We handle everything from single pallets to large construction site logistics, ensuring your bricks arrive safely and on time.
+      </Fragment>
+    </Hero>
+
+    <Features
+      highlight="Our Services"
+      title="Why Choose BrickMove Pro?"
+      items={[
+        {
+          title: "Efficient Transportation",
+          description:
+            "State-of-the-art equipment and vehicles specially designed for safe brick transportation.",
+          icon: "fluent:vehicle-truck-24-regular",
+        },
+        {
+          title: "Careful Handling",
+          description:
+            "Expert teams trained in proper brick handling techniques to prevent damage and ensure safety.",
+          icon: "fluent:hand-left-20-regular",
+        },
+        {
+          title: "Nationwide Coverage",
+          description:
+            "Serving construction sites and suppliers across the country with reliable brick moving solutions.",
+          icon: "fluent:map-24-regular",
+        },
+        {
+          title: "Real-time Tracking",
+          description:
+            "Track your brick shipments in real-time with our advanced logistics system.",
+          icon: "fluent:location-24-regular",
+        },
+        {
+          title: "Competitive Pricing",
+          description:
+            "Transparent pricing structure with no hidden fees. Get quotes instantly.",
+          icon: "fluent:money-24-regular",
+        },
+        {
+          title: "24/7 Support",
+          description:
+            "Round-the-clock customer service to address all your brick moving needs.",
+          icon: "fluent:chat-24-regular",
+        },
+      ]}
+    />
+
+    <Logos
+      title="Trusted by Leading Construction Companies"
+      subtitle="Join hundreds of satisfied customers who rely on our brick moving expertise."
+    />
+
+    <Cta
+      callToAction={{
+        text: "Get Free Quote",
+        href: "/contact",
+        icon: "fluent:arrow-right-24-regular",
+      }}
+    >
+      <h2>Ready to Move Your Bricks?</h2>
+      <p>Contact us today for a free quote and experience hassle-free brick transportation.</p>
+    </Cta>
 
     <Code class={'text-red-600'} code={`const foo = 'bar';`} lang="go" />
-  
   </Container>
 </Layout>

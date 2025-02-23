@@ -1,53 +1,50 @@
 ---
-import { Picture } from "astro:assets";
-import heroImage from "assets/hero.png";
+import { Picture } from "@astrojs/image/components";
+import heroImage from "assets/hero-brick.jpg";
 import Link from "@components/ui/link.astro";
+import Container from "@components/container.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src={heroImage}
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-    />
-  </div>
-  <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-     fksdhjigohaiguhsdughsfkujgsfg
-    </h1>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      Astroship is a starter template for startups, marketing websites & landing
-      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly
-      create any website with this starter.
-    </p>
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
-        href="#"
-        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
-        rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" />
-
-         Download for Free
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-         GitHub Repo
-      </Link>
-    </div>
-  </div>
-</main>
+<div class="overflow-hidden">
+  <Container>
+    <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+      <div class="py-6 md:order-1 hidden md:block">
+        <Picture
+          src={heroImage}
+          alt="Brick moving professionals at work"
+          widths={[200, 400, 600]}
+          aspectRatio="4:3"
+          sizes="(max-width: 800px) 100vw, 620px"
+          loading="eager"
+          format="avif"
+        />
+      </div>
+      <div>
+        <h1
+          class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+          <slot name="title">Title</slot>
+        </h1>
+        <p class="text-lg mt-4 text-slate-600 max-w-xl">
+          <slot name="subtitle">Some description goes here</slot>
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+          <Link
+            href="/contact"
+            class="flex gap-1 items-center justify-center bg-orange-600 hover:bg-orange-700"
+            rel="noopener">
+            Get a Quote
+          </Link>
+          <Link
+            size="lg"
+            style="outline"
+            rel="noopener"
+            href="/about"
+            class="flex gap-1 items-center justify-center border-orange-600 text-orange-600 hover:bg-orange-50">
+            Learn More
+          </Link>
+        </div>
+      </div>
+    </main>
+  </Container>
+</div>
