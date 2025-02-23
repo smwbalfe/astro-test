@@ -1,0 +1,21 @@
+---
+import Container from "@components/container.astro";
+import Cta from "@components/cta.astro";
+import Features from "@components/features.astro";
+import Hero from "@components/hero.astro";
+import Logos from "@components/logos.astro";
+import Layout from "@layouts/Layout.astro";
+import { Code } from "astro:components";
+---
+
+<Layout title="">
+  <Container>
+    <Hero />
+    <Features />
+    <Logos />
+    <Cta />
+
+    <Code class={'text-red-600'} code={`const foo = 'bar';`} lang="go" />
+  
+  </Container>
+</Layout>
